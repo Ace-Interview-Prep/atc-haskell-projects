@@ -1,5 +1,7 @@
 module GameLogic where
 
+import Data.Maybe (listToMaybe)
+
 data Player = X | O deriving (Eq, Show)
 type Board = [[Maybe Player]]
 type Position = (Int, Int)
@@ -31,4 +33,11 @@ diagonals board =
 
 transpose :: [[a]] -> [[a]]
 transpose ([]:_) = []
-transpose x = map head x : transpose (map tail x)
+transpose x = case map listToMaybe x of
+  (Just h:_) -> (h : map (head' . tail') x) : transpose (map tail' x)
+  _          -> []
+  where
+    head' (x:_) = x
+    head' []    = error "Unexpected empty list"
+    tail' (_:xs) = xs
+    tail' []     = error "Unexpected empty list"

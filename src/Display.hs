@@ -14,7 +14,6 @@ printBoard board = do
 -- Function to display the help menu
 displayHelp :: IO ()
 displayHelp = do
-  putStrLn "Welcome to Tic-Tac-Toe!"
   putStrLn "Here are the instructions to play the game:"
   putStrLn ""
   putStrLn "1. How to make a move:"
