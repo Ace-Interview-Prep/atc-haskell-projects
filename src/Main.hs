@@ -1,26 +1,54 @@
 module Main where
 
 import System.IO (hFlush, stdout)
+import GameLogic
+import Display
 
 main :: IO ()
 main = do
   putStrLn "Welcome to Tic Tac Toe!"
-  loop
+  displayHelp --Show the help menu
+  gameLoop emptyBoard X
 
-loop :: IO ()
-loop = do
-  putStr "Enter command: "
+gameLoop :: Board -> Player -> IO ()
+gameLoop board currentPlayer = do
+  putStrLn "\nCurrent Board:"
+  printBoard board
+  if checkWin board X
+    then putStrLn "Player X wins!" >> restartGame
+    else if checkWin board O
+      then putStrLn "Player O wins!" >> restartGame
+      else if isDraw board
+        then putStrLn "It's a draw!" >> restartGame
+        else do
+          putStrLn $ "Player " ++ show currentPlayer ++ ", enter your move (row and column): "
+          hFlush stdout
+          input <- getLine
+          case parseMove input of
+            Just pos ->
+              case makeMove board pos currentPlayer of
+                Left err -> putStrLn err >> gameLoop board currentPlayer
+                Right newBoard -> gameLoop newBoard (nextPlayer currentPlayer)
+            Nothing -> putStrLn "Invalid input. Enter row and column as two numbers (e.g., 1 2)." >> gameLoop board currentPlayer
+
+restartGame :: IO ()
+restartGame = do
+  putStrLn "Do you want to play again? (yes/no)"
   hFlush stdout
-  input <- getLine
-  isLooping <- handleInput input
-  if isLooping
-    then loop
-    else return ()
+  response <- getLine
+  if response == "yes"
+    then gameLoop emptyBoard X
+    else putStrLn "Thanks for playing!"
 
-handleInput :: String -> IO Bool
-handleInput "exit" = do
-  putStrLn "Goodbye!"
-  pure False
-handleInput input = do
-  putStrLn $ "You entered: " ++ input
-  pure True
+parseMove :: String -> Maybe Position
+parseMove input =
+  case words input of
+    [r, c] -> case (readMaybe r, readMaybe c) of
+                (Just row, Just col) -> Just (row - 1, col - 1)
+                _ -> Nothing
+    _ -> Nothing
+
+readMaybe :: Read a => String -> Maybe a
+readMaybe s = case reads s of
+  [(val, "")] -> Just val
+  _ -> Nothing
