@@ -36,9 +36,13 @@ restartGame = do
   putStrLn "Do you want to play again? (yes/no)"
   hFlush stdout
   response <- getLine
-  if response == "yes"
-    then gameLoop emptyBoard X
-    else putStrLn "Thanks for playing!"
+  if response == "yes" 
+    then gameLoop emptyBoard X  -- Restart the game
+    else if response == "no"
+      then putStrLn "Thanks for playing!"
+      else do
+        putStrLn "Invalid choice. Please type 'yes' or 'no'."
+        restartGame  -- Prompt again if the input is invalid
 
 parseMove :: String -> Maybe Position
 parseMove input =
