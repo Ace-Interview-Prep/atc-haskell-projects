@@ -32,12 +32,12 @@ diagonals board =
   [[board !! i !! i | i <- [0..2]], [board !! i !! (2 - i) | i <- [0..2]]]
 
 transpose :: [[a]] -> [[a]]
-transpose ([]:_) = []
-transpose x = case map listToMaybe x of
-  (Just h:_) -> (h : map (head' . tail') x) : transpose (map tail' x)
-  _          -> []
+transpose [] = []
+transpose x
+  | all null x = []
+  | otherwise = map safeHead x : transpose (map safeTail x)
   where
-    head' (x:_) = x
-    head' []    = error "Unexpected empty list"
-    tail' (_:xs) = xs
-    tail' []     = error "Unexpected empty list"
+    safeHead [] = error "Unexpected empty list in safeHead"
+    safeHead (y:_) = y
+    safeTail [] = []
+    safeTail (_:ys) = ys
