@@ -6,8 +6,10 @@ import Display
 
 main :: IO ()
 main = do
+  putStrLn "========================================"
   putStrLn "Welcome to Tic Tac Toe game!"
   putStrLn "Enjoy to the fullest!!!!!"
+  putStrLn "========================================"
   loop
 
 loop :: IO()
