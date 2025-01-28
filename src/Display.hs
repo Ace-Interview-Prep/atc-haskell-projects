@@ -4,8 +4,7 @@ import GameLogic (Board, Player(..))
 
 -- Function to print the game board
 printBoard :: Board -> IO ()
-printBoard board = do
-  putStrLn $ unlines $ map (unwords . map cellToChar) board
+printBoard board = putStrLn $ unlines $ map (unwords . map cellToChar) board
   where
     cellToChar Nothing = "."
     cellToChar (Just X) = "X"
