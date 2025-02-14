@@ -32,7 +32,9 @@ handleInput "help" = do
 handleInput "start" = do
   gameLoop newGame
   pure True
-
+handleInput _ = do
+  putStrLn "Invalid command! Please enter 'start', 'help' or 'exit'."
+  pure True
 gameLoop :: Game -> IO ()
 gameLoop game = do
   printBoard (board game)  -- Display the current board
