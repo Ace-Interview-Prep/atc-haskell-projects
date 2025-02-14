@@ -48,7 +48,7 @@ gameLoop game = do
           case makeMove game (Move (currentPlayer game) (r, c)) of
             Left err -> putStrLn err >> gameLoop game
             Right newGameState -> gameLoop newGameState
-        Nothing -> putStrLn "Invalid input, try again." >> gameLoop game
+        Nothing -> putStrLn "Invalid input! Enter a valid input(row and column between 1 to 3)." >> gameLoop game
     Draw -> putStrLn "It's a draw!" >> restartGame
     Won player -> do
       putStrLn $ "Player " ++ show player ++ " wins!"
