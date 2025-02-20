@@ -82,7 +82,6 @@ Test the CLI by typing in commands and interacting with the recursive prompt.
 
 ## Rubric:
 
-
 ### Scoring System
 Each criterion is evaluated based on three categories:
 
@@ -97,24 +96,24 @@ If a student scores 0 in Understanding for a criterion, the maximum they can rec
 | Category                  | Criteria                                   | Completion (30%) | Quality (20%) | Understanding (50%) | Final Score |
 |---------------------------|--------------------------------------------|-----------------|---------------|---------------------|-------------|
 | **Basic Functionality**   |                                            |                 |               |                     |             |
-|                           | Adding a task                              |              |            |                   |          |
-|                           | Viewing tasks                              |             |           |                |         |
-|                           | Marking a task as complete                 |              |           |                 |          |
-|                           | Deleting a task                            |              |            |                 |          |
-|                           | Editing a task                             |             |           |                 |         |
+|                           | Adding a task                              |                 |               |                     |             |
+|                           | Viewing tasks                              |                 |               |                     |             |
+|                           | Marking a task as complete                 |                 |               |                     |             |
+|                           | Deleting a task                            |                 |               |                     |             |
+|                           | Editing a task                             |                 |               |                     |             |
 | **Advanced Features**     | (Optional)                                 |                 |               |                     |             |
-|                           | Task prioritization                        |             |           |                 |         |
-|                           | Due dates and sorting                      |               |             |                   |           |
-|                           | Filtering tasks by status                  |             |           |                 |         |
-|                           | Command-line options for non-interactive mode |               |            |                   |           |
+|                           | Task prioritization                        |                 |               |                     |             |
+|                           | Due dates and sorting                      |                 |               |                     |             |
+|                           | Filtering tasks by status                  |                 |               |                     |             |
+|                           | Command-line options for non-interactive mode |              |               |                     |             |
 | **User Interface**        |                                            |                 |               |                     |             |
-|                           | Help menu                                  |             |           |                 |         |
-|                           | Overall usability and intuitiveness        |             |           |                 |         |
+|                           | Help menu                                  |                 |               |                     |             |
+|                           | Overall usability and intuitiveness        |                 |               |                     |             |
 | **Error Handling**        |                                            |                 |               |                     |             |
-|                           | Graceful handling of invalid input         |              |            |                  |         |
-|                           | User-friendly error messages               |             |          |                 |         |
+|                           | Graceful handling of invalid input         |                 |               |                     |             |
+|                           | User-friendly error messages               |                 |               |                     |             |
 | **Code Quality**          |                                            |                 |               |                     |             |
-|                           | Modular design                             |             |           |                  |          |
-|                           | Code cleanliness and readability           |             |           |                 |         |
-|                           | Use of Haskell best practices              |              |            |                  |         |
-| **Total**                 | *(100 points if advanced features are not implemented, 120 if they are)* |                 |               |                     |     |
+|                           | Modular design                             |                 |               |                     |             |
+|                           | Code cleanliness and readability           |                 |               |                     |             |
+|                           | Use of Haskell best practices              |                 |               |                     |             |
+| **Total**                 | *(100 points if advanced features are not implemented, 120 if they are)* |     |    |              |             |
