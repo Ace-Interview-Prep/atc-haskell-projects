@@ -82,30 +82,39 @@ Test the CLI by typing in commands and interacting with the recursive prompt.
 
 ## Rubric:
 
-### Basic Functionality (40 points):
-- Adding a task (10 points)
-- Viewing tasks (5 points)
-- Marking a task as complete (10 points)
-- Deleting a task (10 points)
-- Editing a task (5 points)
 
-### Advanced Features (Optional - 20 points):
-- Task prioritization (5 points)
-- Due dates and sorting (5 points)
-- Filtering tasks by status (5 points)
-- Command-line options for non-interactive mode (5 points)
+### Scoring System
+Each criterion is evaluated based on three categories:
 
-### User Interface (20 points):
-- Help menu (10 points)
-- Overall usability and intuitiveness (10 points)
+- **Completion (30%):** The feature is fully implemented, with edge cases considered.
+- **Quality (20%):** The code is well-structured, follows best practices, and is not copy-pasted.
+- **Understanding (50%):** The student can clearly explain their implementation and reasoning.
 
-### Error Handling (10 points):
-- Graceful handling of invalid input (5 points)
-- User-friendly error messages (5 points)
+If a student scores 0 in Understanding for a criterion, the maximum they can receive for that criterion is 30% of the available points.
 
-### Code Quality (30 points):
-- Modular design (10 points)
-- Code cleanliness and readability (10 points)
-- Use of Haskell best practices (10 points)
+---
 
-**Total: 120 points (100 if advanced features are not implemented)**
+| Category                  | Criteria                                   | Completion (30%) | Quality (20%) | Understanding (50%) | Final Score |
+|---------------------------|--------------------------------------------|-----------------|---------------|---------------------|-------------|
+| **Basic Functionality**   |                                            |                 |               |                     |             |
+|                           | Adding a task                              |              |            |                   |          |
+|                           | Viewing tasks                              |             |           |                |         |
+|                           | Marking a task as complete                 |              |           |                 |          |
+|                           | Deleting a task                            |              |            |                 |          |
+|                           | Editing a task                             |             |           |                 |         |
+| **Advanced Features**     | (Optional)                                 |                 |               |                     |             |
+|                           | Task prioritization                        |             |           |                 |         |
+|                           | Due dates and sorting                      |               |             |                   |           |
+|                           | Filtering tasks by status                  |             |           |                 |         |
+|                           | Command-line options for non-interactive mode |               |            |                   |           |
+| **User Interface**        |                                            |                 |               |                     |             |
+|                           | Help menu                                  |             |           |                 |         |
+|                           | Overall usability and intuitiveness        |             |           |                 |         |
+| **Error Handling**        |                                            |                 |               |                     |             |
+|                           | Graceful handling of invalid input         |              |            |                  |         |
+|                           | User-friendly error messages               |             |          |                 |         |
+| **Code Quality**          |                                            |                 |               |                     |             |
+|                           | Modular design                             |             |           |                  |          |
+|                           | Code cleanliness and readability           |             |           |                 |         |
+|                           | Use of Haskell best practices              |              |            |                  |         |
+| **Total**                 | *(100 points if advanced features are not implemented, 120 if they are)* |                 |               |                     |     |
