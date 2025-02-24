@@ -2,7 +2,6 @@ module Display (printBoard, displayHelp) where
 
 import GameLogic (Board, Player(..))
 
--- Function to print the game board
 printBoard :: Board -> IO ()
 printBoard board = putStrLn $ unlines $ map (unwords . map cellToChar) board
   where
@@ -10,7 +9,6 @@ printBoard board = putStrLn $ unlines $ map (unwords . map cellToChar) board
     cellToChar (Just X) = "X"
     cellToChar (Just O) = "O"
 
--- Function to display the help menu
 displayHelp :: IO ()
 displayHelp = do
   putStrLn "Here are the instructions to play the game:"

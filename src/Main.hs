@@ -38,7 +38,7 @@ handleInput _ = do
   pure True
 gameLoop :: Game -> IO ()
 gameLoop game = do
-  printBoard (board game)  -- Display the current board
+  printBoard (board game)
   case state game of
     InProgress -> do
       putStrLn $ "Player " ++ show (currentPlayer game) ++ ", make your move (row and column): "
@@ -56,7 +56,6 @@ gameLoop game = do
       restartGame
 
 
--- Prompt for restarting the game
 restartGame :: IO ()
 restartGame = do
   putStrLn "Do you want to play again? (yes/no)"
@@ -70,7 +69,6 @@ restartGame = do
         putStrLn "Invalid choice. Please type 'yes' or 'no'."
         restartGame
 
--- Parse user input to extract a move (row and column)
 parseMove :: String -> Maybe Position
 parseMove input = case words input of
   [r, c] -> if all isDigit r && all isDigit c

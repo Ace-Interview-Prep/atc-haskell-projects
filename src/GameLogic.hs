@@ -57,7 +57,6 @@ antiDiagonal :: Board -> [Maybe Player]
 antiDiagonal board = [board !! i !! (n - i - 1) | i <- [0..n-1]]
   where n = length board
 
--- Transpose the board (rotate it 90 degrees)
 transpose :: [[a]] -> [[a]]
 transpose [] = []
 transpose x
