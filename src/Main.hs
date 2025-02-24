@@ -3,6 +3,7 @@ module Main where
 import System.IO (hFlush, stdout)
 import GameLogic
 import Display
+import Data.Char (isDigit)
 
 main :: IO ()
 main = do
@@ -72,5 +73,7 @@ restartGame = do
 -- Parse user input to extract a move (row and column)
 parseMove :: String -> Maybe Position
 parseMove input = case words input of
-  [r, c] -> Just (read r - 1, read c - 1)
+  [r, c] -> if all isDigit r && all isDigit c
+            then Just (read r - 1, read c - 1)
+            else Nothing
   _ -> Nothing
