@@ -1,7 +1,5 @@
 module GameLogic where
 
-import Data.Maybe (listToMaybe)
-
 data Player = X | O deriving (Eq, Show)
 type Position = (Int, Int)
 type Board = [[Maybe Player]]
