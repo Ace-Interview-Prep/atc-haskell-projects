@@ -5,8 +5,6 @@
 
 module Frontend where
 
-import Control.Lens ((^.))
-import Control.Monad
 import qualified Data.Text as T
 import qualified Data.Text.Encoding as T
 import Language.Javascript.JSaddle (liftJSM, js, js1, jsg)
@@ -21,38 +19,20 @@ import Reflex.Dom.Core
 import Common.Api
 import Common.Route
 
-
--- This runs in a monad that can be run on the client or the server.
--- To run code in a pure client or pure server context, use one of the
--- `prerender` functions.
 frontend :: Frontend (R FrontendRoute)
 frontend = Frontend
   { _frontend_head = do
-      el "title" $ text "Obelisk Minimal Example"
+      el "title" $ text "Twitter"
       elAttr "script" ("type" =: "application/javascript" <> "src" =: $(static "lib.js")) blank
-      elAttr "link" ("href" =: $(static "main.css") <> "type" =: "text/css" <> "rel" =: "stylesheet") blank
+      elAttr "script" ("src" =: "https://cdn.tailwindcss.com") blank
   , _frontend_body = do
-      el "h1" $ text "Welcome to Obelisk!"
-      el "p" $ text $ T.pack commonStuff
+      elClass "nav" "bg-blue-600 text-white p-4 flex justify-between items-center" $ do
+        elClass "h1" "text-xl font-bold" $ text "Twitter Clone"
+        elClass "div" "flex space-x-4" $ do
+          elAttr "a" ("href" =: "/" <> "aria-label" =: "Go to Home page") $ text "Home"
+          elAttr "a" ("href" =: "/profile" <> "aria-label" =: "Go to Profile page") $ text "Profile"
+          elAttr "a" ("href" =: "/tweets" <> "aria-label" =: "Go to Tweets page") $ text "Tweets"
+      elClass "div" "max-w-7xl text-center py-7 font-bold text-2xl text-gray-800" $ do
+        el "p" $ text "Welcome! Sign up with us today!!"
 
-      -- `prerender` and `prerender_` let you choose a widget to run on the server
-      -- during prerendering and a different widget to run on the client with
-      -- JavaScript. The following will generate a `blank` widget on the server and
-      -- print "Hello, World!" on the client.
-      prerender_ blank $ liftJSM $ void
-        $ jsg ("window" :: T.Text)
-        ^. js ("skeleton_lib" :: T.Text)
-        ^. js1 ("log" :: T.Text) ("Hello, World!" :: T.Text)
-
-      elAttr "img" ("src" =: $(static "obelisk.jpg")) blank
-      el "div" $ do
-        let
-          cfg = "common/example"
-          path = "config/" <> cfg
-        getConfig cfg >>= \case
-          Nothing -> text $ "No config file found in " <> path
-          Just bytes -> case T.decodeUtf8' bytes of
-            Left ue -> text $ "Couldn't decode " <> path <> " : " <> T.pack (show ue)
-            Right s -> text s
-      return ()
   }
