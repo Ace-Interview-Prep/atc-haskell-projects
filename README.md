@@ -1,36 +1,76 @@
-# ATC Haskell Projects
-Fork this repository - each branch is a different project
+# Project 4: Real-Time Sign Language Classifier
 
-## Instructions for Completing and Submitting Your Project
+## How to Run the Application
 
-1. **IMPORTANT: Fork the Project**
-   - Click the "Fork" button at the top-right of the main page of this repository to create your own copy of the repository.
-   - **Make sure you deselect the "Copy the main branch only" option** so that all projects are copied to the forked repository.
+TODO 
 
-3. **Ensure You Clone All Branches**
-   - Use the following command to clone all branches:
-     ```bash
-     git clone --no-single-branch <your-forked-repository-url>
-     ```
+## High-Level Description
 
-4. **Complete the Project**
-   - Each branch in this repository has a separate project for you to complete. Checkout the branch to get started
-     ```bash
-     git branch -a
-     git checkout 1-todo-manager
-     ```
-   - Make your changes and implement the required features.
-   - Be sure to commit your changes frequently and push them to your forked repository.
+This project involves building an image classification system to recognize hand gestures from the American Sign Language (ASL) alphabet. The system will be trained using a labeled dataset of gesture images and extended to support real-time prediction from a webcam feed. The goal is to demonstrate knowledge of image preprocessing, CNN architecture design, real-time inference, and optionally edge deployment. This project blends classical image classification with practical computer vision implementation.
 
-6. **Add 'rhemsuda' and 'augyg' as Watchers**
-   - Once you are done with your changes, go to your forked repository on GitHub.
-   - Navigate to the **Settings** tab.
-   - Under **Collaborators and teams**, add the following users as watchers:
-     - `rhemsuda`
-     - `augyg`
+## Software Requirements
 
-7. **Send Us a Message**
-   - After adding the watchers and ensuring everything is pushed to the repository, send us a message to indicate that you have finished the project.
+### Basic Functionality:
+- Train a convolutional neural network on the ASL alphabet dataset (e.g., from Kaggle).
+- Evaluate the model on a test set with accuracy or F1 score.
+- Save the trained model for inference.
 
-8. **Project Submission Confirmation**
-   - Once we receive your message, we will review the repository and notify you of any feedback or final approval.
+### Real-Time Classification:
+- Capture frames from a webcam using OpenCV.
+- Apply preprocessing to extract hand region and match training format.
+- Use the trained model to predict gestures in real time.
+- Display live video feed with overlaid predictions.
+
+### Preprocessing:
+- Resize and normalize input images.
+- Convert color channels and apply background filtering (if needed).
+- Optional: Hand detection or segmentation before classification.
+
+### Optional Advanced Features:
+- Add sequence-level modeling to recognize whole words.
+- Deploy the classifier to mobile or edge devices.
+- Add gesture-based control (e.g., "open app" with a specific sign).
+
+## Acceptance Criteria:
+
+### Functionality:
+- The model trains and achieves at least 80% accuracy on the test set.
+- Real-time predictions work on live webcam input.
+
+### Usability:
+- Output predictions are overlaid on live video.
+- Frame rate is responsive (>= 10 FPS preferred).
+
+### Code Quality:
+- Training and inference logic are modular and clean.
+- Configuration and logging are included.
+
+### Preprocessing Pipeline:
+- Input frames are normalized correctly.
+- Optional: additional hand segmentation adds robustness.
+
+## Rubric:
+
+### Basic Functionality (40 points):
+- Model trains on ASL data (10 points)
+- Evaluation metrics reported (10 points)
+- Model saves and loads correctly (10 points)
+- Working real-time prediction (10 points)
+
+### Real-Time System (20 points):
+- Webcam feed integration and frame processing (10 points)
+- Responsive output with overlaid predictions (10 points)
+
+### Preprocessing and Data Handling (10 points):
+- Image normalization and consistency (5 points)
+- Hand detection/filtering (5 points)
+
+### Code Quality and Modularity (20 points):
+- Clean architecture and modular files (10 points)
+- Reproducible training/inference pipelines (10 points)
+
+### Advanced Features (Optional - 20 points):
+- Word-level prediction, mobile deployment, gesture interaction (10–20 points)
+
+**Total: 120 points (100 if advanced features are not implemented)**
+
