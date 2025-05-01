@@ -1,36 +1,73 @@
-# ATC Haskell Projects
-Fork this repository - each branch is a different project
+# Project 5: Medical Image Classifier with Explainability
 
-## Instructions for Completing and Submitting Your Project
+## How to Run the Application
 
-1. **IMPORTANT: Fork the Project**
-   - Click the "Fork" button at the top-right of the main page of this repository to create your own copy of the repository.
-   - **Make sure you deselect the "Copy the main branch only" option** so that all projects are copied to the forked repository.
+TODO
 
-3. **Ensure You Clone All Branches**
-   - Use the following command to clone all branches:
-     ```bash
-     git clone --no-single-branch <your-forked-repository-url>
-     ```
+## High-Level Description
 
-4. **Complete the Project**
-   - Each branch in this repository has a separate project for you to complete. Checkout the branch to get started
-     ```bash
-     git branch -a
-     git checkout 1-todo-manager
-     ```
-   - Make your changes and implement the required features.
-   - Be sure to commit your changes frequently and push them to your forked repository.
+This project involves building an image classification system for a medical imaging task, such as detecting pneumonia from chest X-rays or diabetic retinopathy from retinal images. The emphasis is on both accuracy and interpretability—your model must not only predict the correct class but also offer visual explanations using techniques like Grad-CAM or integrated gradients. The project simulates real-world expectations for explainable AI in healthcare and high-stakes domains.
 
-6. **Add 'rhemsuda' and 'augyg' as Watchers**
-   - Once you are done with your changes, go to your forked repository on GitHub.
-   - Navigate to the **Settings** tab.
-   - Under **Collaborators and teams**, add the following users as watchers:
-     - `rhemsuda`
-     - `augyg`
+## Software Requirements
 
-7. **Send Us a Message**
-   - After adding the watchers and ensuring everything is pushed to the repository, send us a message to indicate that you have finished the project.
+### Basic Functionality:
+- Load and preprocess a medical image dataset (e.g., Chest X-ray, Retinopathy, Skin Lesion).
+- Train a CNN-based classifier with appropriate evaluation metrics (e.g., AUC, precision/recall).
+- Save the trained model and generate prediction outputs.
 
-8. **Project Submission Confirmation**
-   - Once we receive your message, we will review the repository and notify you of any feedback or final approval.
+### Explainability:
+- Implement at least one method for visual explanation (e.g., Grad-CAM, LIME, SHAP).
+- Generate visual overlays on images showing the region of attention.
+- Save these explanations for later review.
+
+### Evaluation:
+- Compute metrics appropriate to imbalanced datasets (e.g., confusion matrix, ROC curves).
+- Include error analysis or discussion of failure modes.
+
+### Optional Advanced Features:
+- Build a simple UI to browse predictions and explanations.
+- Use ensemble models or advanced architectures (e.g., EfficientNet, Vision Transformers).
+- Compare multiple explainability methods.
+
+## Acceptance Criteria:
+
+### Functionality:
+- Trained model achieves reasonable accuracy on test data (>= 85% preferred).
+- Explanations are visualized and interpretable.
+
+### Usability:
+- Scripts to run predictions and generate explanations are clear.
+- Output files are labeled and accessible.
+
+### Code Quality:
+- Clean structure with reusable components.
+- Documented preprocessing, training, and explanation steps.
+
+### Interpretability:
+- Visual explanation highlights match known anatomical relevance.
+- Tools used are scientifically defensible (e.g., Grad-CAM on CNNs).
+
+## Rubric:
+
+### Basic Functionality (40 points):
+- Data loading and preprocessing (10 points)
+- CNN training and evaluation (10 points)
+- Prediction generation and output saving (10 points)
+- Use of appropriate metrics (10 points)
+
+### Explainability (20 points):
+- Grad-CAM or equivalent implemented (10 points)
+- Visual overlays saved and interpretable (10 points)
+
+### Evaluation and Analysis (10 points):
+- ROC curves, confusion matrix, or other error analysis (10 points)
+
+### Code Quality and Reproducibility (20 points):
+- Modular code and documentation (10 points)
+- Environment and config management (10 points)
+
+### Advanced Features (Optional - 20 points):
+- UI for browsing, multiple explainability tools, model ensembling (10–20 points)
+
+**Total: 120 points (100 if advanced features are not implemented)**
+
